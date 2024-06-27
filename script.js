@@ -6,6 +6,7 @@ $('.search').on('click',() => {
     if (cariMovie === ''){
         alert('Tolong Inputkan Data Terlebih Dahulu Sebelum Mencari')
     }else{
+        alert(cariMovie)
         tampilkanHasilSearch(cariMovie);
     }
     
@@ -74,6 +75,15 @@ function tampilkanDataKeHtml(data){
             // console.log(movieName);
     
     let isShowPop = false;
+
+    if (document.querySelector('.container').childElementCount !== 0) {
+        Array.from(document.querySelector('.container').children).forEach(e => e.remove())
+    }
+
+
+    if (movieName === undefined) {
+        return alert('Masukkan Data Film Yang Valid')
+    };
     let listMovie = movieName.forEach(movie => {
         let item =  
         `
